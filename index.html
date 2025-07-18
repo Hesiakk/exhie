@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhie - Info</title>
+  <link rel="icon" href="avatar.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      cursor: none !important;
+    }
+    body {
+      background: url('backgroundcity.png') no-repeat center center;
+      background-size: cover;
+    }
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+    }
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(14px);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease forwards;
+      overflow: hidden;
+    }
+    .avatar {
+      width: 100px; height:100px;
+      border-radius:50%;
+      margin-bottom: 1rem;
+      border:4px solid rgba(255,255,255,0.2);
+      display:block; margin:0 auto 1.2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+    .avatar:hover { 
+      transform: scale(1.1) translateY(-4px) rotate(8deg);
+      box-shadow: 0 12px 32px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+    h1 {
+      font-family:'Orbitron',sans-serif;
+      font-size:2rem; text-align:center; margin-bottom:0.3rem;
+    }
+    p {
+      text-align:center; color:#ccc; margin-bottom:2rem;
+    }
+    .social-icons {
+      display:flex; justify-content:center; gap:20px; margin-bottom:2.5rem;
+    }
+    .social-icons a {
+      width:48px; height:48px;
+      background:rgba(255,255,255,0.06);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .social-icons a img {
+      width:26px; height:26px;
+    }
+    .social-icons a:hover {
+      transform: scale(1.15) translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+      background:rgba(255,255,255,0.18);
+    }
+    .social-icons a.twitch:hover { background: rgb(144, 70, 255); }
+    .social-icons a.youtube:hover { background: rgb(255, 0, 0); }
+    .social-icons a.instagram:hover {
+      background: radial-gradient(circle at 30% 30%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .social-icons a.tiktok:hover { background: linear-gradient(135deg, #25F4EE, #FE2C55, #000000);}
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap:1.2rem;
+    }
+    .link-card {
+      position:relative;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius:1rem;
+      padding: 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#fff;
+      font-size:0.9rem;
+      overflow:hidden;
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .link-card::before {
+      content:'';
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background:rgba(255, 255, 255, 0.12);
+      transform: rotate(25deg);
+      transition: transform 0.7s ease;
+    }
+    .link-card:hover {
+      transform: scale(1.05);
+    }
+    .link-card:hover::before {
+      transform: translate(30%,30%) rotate(25deg);
+    }
+    .link-card img {
+      height: 22px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+    .link-card:hover img {
+      transform: rotate(8deg) scale(1.1);
+    }
+    .author-tag {
+      margin-left:12rem;
+      margin-top: 6rem;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #ccc;
+      display: inline-block;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1.2s ease forwards;
+      text-decoration: none;
+    }
+    .author-tag:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      color: white;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(40px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem;}
+      .link-card { font-size: 0.85rem; padding: 8px 12px;}
+      .avatar { width: 90px; height: 90px;}
+      .social-icons a { width: 44px; height: 44px;}
+      .social-icons a img { width: 20px; height: 20px;}
+      .author-tag { margin-left: 4rem; }
+    }
+    .case {
+      background-color: rgb(255, 0, 0);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .ttv {
+      background-color: rgb(140, 0, 255);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .yt {
+      background-color: rgb(255, 0, 0);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .ig {
+      background: radial-gradient(circle at 30% 30%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .dc {
+      background-color: rgb(70, 69, 69);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .link {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .link:hover {
+      color: white;
+    }
+    .cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 64px;
+      height: 64px;
+      background: url('autocursor.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transition: background-image 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="wrapper">
+    <div class="card">
+      <img src="avatar.png" alt="avatar" class="avatar">
+      <h1>Exhie</h1>
+      <p>Biznes: exhiie@stormmedia.gg</p>
+      <div class="social-icons">
+        <a class="twitch" href="https://www.twitch.tv/neefsi_" target="_blank"><img src="twitch-icon.png" alt="Twitch"></a>
+        <a class="youtube" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+        <a class="instagram" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+        <a class="tiktok" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="tiktok-icon.png" alt="Tiktok"></a>
+      </div>
+      <div class="grid">
+        <a class="link-card" href="https://csgo-skins.com/?code=EXHIIE" target="_blank"><img src="csgoskins-icon.png" alt=""><span>CSGO-Skins</span><div class="case">+18</div></a>
+        <a class="link-card" href="" target="_blank"><img src="pirateswap-icon.png" alt=""><span>PirateSwap</span><div class="case">+18</div></a>
+        <a class="link-card" href="" target="_blank"><img src="fcoins-icon.png" alt=""><span>Fcoins</span><div class="case">+18</div></a>
+        <a class="link-card" href="https://www.twitch.tv/neefsi_" target="_blank"><img src="twitch-icon.png" alt=""><span>Twitch</span><div class="ttv">Mój kanał twitch</div></a>
+        <a class="link-card" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="instagram-icon.png" alt=""><span>Instagram</span><div class="ig">Mój Instagram</div></a>
+        <a class="link-card" href="https://discord.gg/BfPFKySF2M" target="_blank"><img src="discord-icon.png" alt=""><span>Discord</span><div class="dc">Serwer Discord</div></a>
+      </div>
+      <div class="author-tag"><a class="link" href="https://hesiakk.github.io/hsk/" target="_blank"><span>Created by <strong>Hesiakk</strong></span>
+      </div>
+    </div>
+  </div>
+  <script>
+  const cursor = document.querySelector('.cursor');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+  let lastAngle = 0;
+  let scale = 1;
+  let lastTime = Date.now();
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    const elem = document.elementFromPoint(mouseX, mouseY);
+    const clickableTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
+    const isPointer = elem && (
+      clickableTags.includes(elem.tagName) ||
+      elem.closest('[onclick], [role="button"], .clickable')
+    );
+
+    if (isPointer) {
+      cursor.style.backgroundImage = "url('clickcursor.png')";
+    } else {
+      cursor.style.backgroundImage = "url('autocursor.png')";
+    }
+  });
+
+  function animate() {
+    const now = Date.now();
+    const deltaTime = now - lastTime;
+    lastTime = now;
+
+    const dx = mouseX - currentX;
+    const dy = mouseY - currentY;
+
+    currentX += dx * 0.15;
+    currentY += dy * 0.15;
+
+    const velocityX = dx / deltaTime;
+    const velocityY = dy / deltaTime;
+    const speed = Math.sqrt(velocityX ** 2 + velocityY ** 2);
+
+    if (speed > 1) {
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      let angleDiff = angle - lastAngle;
+      if (angleDiff > 180) angleDiff -= 360;
+      if (angleDiff < -180) angleDiff += 360;
+      lastAngle += angleDiff * 0.1;
+      scale = 0.95;
+    } else {
+      scale += (1 - scale) * 0.1;
+    }
+
+    cursor.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${lastAngle}deg) scale(${scale})`;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+  </script>
+</body>
+</html>
