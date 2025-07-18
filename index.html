@@ -321,6 +321,8 @@
       scale += (1 - scale) * 0.1;
     }
 
+    const rotated = lastAngle + 180;
+
     cursor.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${lastAngle}deg) scale(${scale})`;
 
     requestAnimationFrame(animate);
