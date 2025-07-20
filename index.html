@@ -17,6 +17,10 @@
     body {
       background: url('backgroundcity.png') no-repeat center center;
       background-size: cover;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
     html, body {
       width: 100%; height: 100%;
@@ -33,7 +37,7 @@
     }
     .card {
       position: relative;
-      background: rgba(255,255,255,0.04);
+      background: rgba(5, 24, 194, 0.04);
       backdrop-filter: blur(14px);
       border-radius: 1.5rem;
       padding: 2rem 1.5rem;
@@ -47,7 +51,7 @@
       width: 100px; height:100px;
       border-radius:50%;
       margin-bottom: 1rem;
-      border:4px solid rgba(255,255,255,0.2);
+      border:4px solid rgba(0, 26, 255, 0.2);
       display:block; margin:0 auto 1.2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.5);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -100,7 +104,7 @@
     }
     .link-card {
       position:relative;
-      background:rgba(255,255,255,0.05);
+      background:rgba(0, 4, 255, 0.05);
       backdrop-filter: blur(10px);
       border-radius:1rem;
       padding: 14px;
@@ -119,7 +123,7 @@
       position:absolute;
       top:-50%; left:-50%;
       width:200%; height:200%;
-      background:rgba(255, 255, 255, 0.12);
+      background:rgba(0, 89, 255, 0.12);
       transform: rotate(25deg);
       transition: transform 0.7s ease;
     }
@@ -182,6 +186,15 @@
       font-weight: bold;
       margin-left: auto;
     }
+    .ps {
+      background-color: rgb(255, 102, 0);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
     .ttv {
       background-color: rgb(140, 0, 255);
       color: white;
@@ -202,6 +215,15 @@
     }
     .ig {
       background: radial-gradient(circle at 30% 30%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+    .kick {
+      background-color: #39a810;
       color: white;
       padding: 2px 6px;
       border-radius: 8px;
@@ -250,20 +272,20 @@
       <h1>Exhie</h1>
       <p>Biznes: exhiie@stormmedia.gg</p>
       <div class="social-icons">
-        <a class="twitch" href="https://www.twitch.tv/neefsi_" target="_blank"><img src="twitch-icon.png" alt="Twitch"></a>
-        <a class="youtube" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
-        <a class="instagram" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
-        <a class="tiktok" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="tiktok-icon.png" alt="Tiktok"></a>
+        <a class="twitch" href="https://www.twitch.tv/exhiie" target="_blank"><img src="twitch-icon.png" alt="Twitch"></a>
+        <a class="youtube" href="https://www.youtube.com/@exhiiie" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+        <a class="instagram" href="https://www.instagram.com/exhiexd/" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+        <a class="tiktok" href="https://www.tiktok.com/@exhiiee" target="_blank"><img src="tiktok-icon.png" alt="Tiktok"></a>
       </div>
       <div class="grid">
         <a class="link-card" href="https://csgo-skins.com/?code=EXHIIE" target="_blank"><img src="csgoskins-icon.png" alt=""><span>CSGO-Skins</span><div class="case">+18</div></a>
-        <a class="link-card" href="" target="_blank"><img src="pirateswap-icon.png" alt=""><span>PirateSwap</span><div class="case">+18</div></a>
-        <a class="link-card" href="" target="_blank"><img src="fcoins-icon.png" alt=""><span>Fcoins</span><div class="case">+18</div></a>
-        <a class="link-card" href="https://www.twitch.tv/neefsi_" target="_blank"><img src="twitch-icon.png" alt=""><span>Twitch</span><div class="ttv">Mój kanał twitch</div></a>
-        <a class="link-card" href="https://www.instagram.com/Neefsi_/" target="_blank"><img src="instagram-icon.png" alt=""><span>Instagram</span><div class="ig">Mój Instagram</div></a>
-        <a class="link-card" href="https://discord.gg/BfPFKySF2M" target="_blank"><img src="discord-icon.png" alt=""><span>Discord</span><div class="dc">Serwer Discord</div></a>
+        <a class="link-card" href="https://pirateswap.com/pl?ref=exhiie" target="_blank"><img src="pirateswap-icon.png" alt=""><span>PirateSwap</span><div class="ps">Wymień skiny</div></a>
+        <a class="link-card" href="https://www.instagram.com/exhiexd/" target="_blank"><img src="instagram-icon.png" alt=""><span>Instagram</span><div class="ig">Mój Instagram</div></a>
+        <a class="link-card" href="https://www.youtube.com/@exhiiie" target="_blank"><img src="youtube-icon.png" alt=""><span>YouTube</span><div class="yt">Mój kanał YouTube</div></a>
+        <a class="link-card" href="https://kick.com/exhiiie" target="_blank"><img src="kick-icon.png" alt=""><span>Kick</span><div class="kick">Mój kanał Kick</div></a>
+        <a class="link-card" href="https://discord.gg/zWgdKxGU" target="_blank"><img src="discord-icon.png" alt=""><span>Discord</span><div class="dc">Serwer Discord</div></a>
       </div>
-      <div class="author-tag"><a class="link" href="https://hesiakk.github.io/hsk/" target="_blank"><span>Created by <strong>Hesiakk</strong></span>
+      <div class="author-tag"><a class="link" href="https://hesiakk.pl/" target="_blank"><span>Created by <strong>Hesiakk</strong></span>
       </div>
     </div>
   </div>
@@ -320,8 +342,6 @@
     } else {
       scale += (1 - scale) * 0.1;
     }
-
-    const rotated = lastAngle + 180;
 
     cursor.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${lastAngle}deg) scale(${scale})`;
 
